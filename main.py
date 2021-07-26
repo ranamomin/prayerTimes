@@ -1,10 +1,4 @@
-# import tkinter as tk
 
-# root = tk.Tk()
-
-# lab = tk.Label(root, text="Hello World!")
-# lab.grid(row=0, column=1)
-#---------------------------------
 import tkinter as tk
 # from tkinter import *
 # from tkinter.ttk import *
@@ -17,17 +11,16 @@ class MainApplication():
         self.master.title("Prayer Times")
         # self.master.iconbitmap("Blank.ico")
 
+        # location_City_Input.grid(row=1, column=1, sticky="NSWE",padx=(10, 10), pady=(7.5, 0))
+        
+        label = tk.Label(self.master, text="Prayer Times")
 
-        label = tk.Label(self.master, text="Prayer Times", )
         city_label = tk.Label(self.master, text="City", )
         state_label = tk.Label(self.master, text="State", )
         country_label = tk.Label(self.master, text="Country", )
         location_City_Input = tk.Entry(self.master)
         location_State_Input = tk.Entry(self.master)
         location_Country_Input = tk.Entry(self.master)
-
-
-
         # greet_button = Button(self.master, width=25, text="Greet", command=self.greet)
         close_button = tk.Button(self.master, width=25, text="Close", command=self.closed)
 
@@ -43,7 +36,6 @@ class MainApplication():
         location_State_Input.grid(row=2, column=1, sticky="NSWE",padx=(5, 10), pady=(3, 0))
         location_Country_Input.grid(row=3, column=1, sticky="NSWE",padx=(5, 10), pady=(3, 0))
 
-        
         # greet_button.grid(row=1, column=0, sticky="NSWE", padx=(10, 10), pady=(10, 1.5))
         close_button.grid(row=5, column=0, sticky="NSWE", padx=(10, 10), pady=(1.5, 10))
 
@@ -57,11 +49,10 @@ class MainApplication():
         print("Quiting")
         return self.master.destroy()
         
-
-
 root = tk.Tk()
 # root.style = Style()
 #  ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative')
 # root.style.theme_use("clam")
 gui = MainApplication(root)
 root.mainloop()
+
