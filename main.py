@@ -3,7 +3,9 @@ import tkinter as tk
 # from tkinter import *
 # from tkinter.ttk import *
 
-
+city_name = ""
+state_name = ""
+country_name = ""
 class MainApplication():
 
     def __init__(self, master):
@@ -23,12 +25,25 @@ class MainApplication():
         state_label = tk.Label(self.master, text="State", )
         country_label = tk.Label(self.master, text="Country", )
         #input fields
-        location_City_Input = tk.Entry(self.master)
-        location_State_Input = tk.Entry(self.master)
-        location_Country_Input = tk.Entry(self.master)
+        
+       
+        # city_n = tk.StringVar() 
+        # global city_name
+        global city_name
+        city_name = tk.StringVar()
+        location_City_Input = tk.Entry(self.master,textvariable=city_name)
+        # city_name = location_City_Input.get()
+        
+        global state_name
+        state_name = tk.StringVar()
+        location_State_Input = tk.Entry(self.master, textvariable=state_name)
+
+        global country_name
+        country_name = tk.StringVar()
+        location_Country_Input = tk.Entry(self.master, textvariable=country_name)
         # greet_button = Button(self.master, width=25, text="Greet", command=self.greet)
         #buttons
-        submit_button = tk.Button(self.master, width=15, text="Submit", command=self.closed)
+        submit_button = tk.Button(self.master, width=15, text="Submit", command=self.submit_action)
 
         close_button = tk.Button(self.master, width=25, text="Close", command=self.closed)
 
@@ -47,16 +62,16 @@ class MainApplication():
 
         submit_button.grid(row=5, column=1,sticky="NSWE", padx=(10, 10), pady=(1.5, 10))
         close_button.grid(row=6, column=1, sticky="NSWE", padx=(10, 10), pady=(1.5, 10))
+        
 
 
-        # greet_button.grid(row=1, column=0, sticky="NSWE", padx=(10, 10), pady=(10, 1.5))
-        close_button.grid(row=5, column=0, sticky="NSWE", padx=(10, 10), pady=(1.5, 10))
-
-
-
-    def greet(self):
-        print("Greetings!")
-        return
+    def submit_action(self):
+      global city_name
+      global state_name
+      global country_name
+      print(city_name.get())
+      print(state_name.get())
+      print(country_name.get())
 
 
     def closed(self):
