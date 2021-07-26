@@ -14,6 +14,11 @@ class MainApplication():
         label = tk.Label(self.master, text="Prayer Times")
 
         #labels
+
+
+        # location_City_Input.grid(row=1, column=1, sticky="NSWE",padx=(10, 10), pady=(7.5, 0))
+        
+        label = tk.Label(self.master, text="Prayer Times")
         city_label = tk.Label(self.master, text="City", )
         state_label = tk.Label(self.master, text="State", )
         country_label = tk.Label(self.master, text="Country", )
@@ -39,9 +44,14 @@ class MainApplication():
         location_City_Input.grid(row=1, column=1, sticky="NSWE",padx=(5, 10), pady=(3, 0))
         location_State_Input.grid(row=2, column=1, sticky="NSWE",padx=(5, 10), pady=(3, 0))
         location_Country_Input.grid(row=3, column=1, sticky="NSWE",padx=(5, 10), pady=(3, 0))
-        
-        submit_button.grid(row=5, column=1,sticky="NSWE", padx=(10, 10), pady=(1.5, 5))
+
+        submit_button.grid(row=5, column=1,sticky="NSWE", padx=(10, 10), pady=(1.5, 10))
         close_button.grid(row=6, column=1, sticky="NSWE", padx=(10, 10), pady=(1.5, 10))
+
+
+        # greet_button.grid(row=1, column=0, sticky="NSWE", padx=(10, 10), pady=(10, 1.5))
+        close_button.grid(row=5, column=0, sticky="NSWE", padx=(10, 10), pady=(1.5, 10))
+
 
 
     def greet(self):
