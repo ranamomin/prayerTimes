@@ -1,51 +1,67 @@
-# import requests
-# import pprint
-# import time
+# import tkinter as tk
 
-# city = input("City: ").replace(" ","")
-# state = input("State: ").replace(" ","")
-# country = input("Country: ").replace(" ","")
+# root = tk.Tk()
 
-# # url = "http://api.aladhan.com/v1/calendarByCity?city=Roseville&state=California&country=United States&method=2&month=04&year=2021"
-# url = "http://api.aladhan.com/v1/calendarByCity?city="+city+"&state="+state+"&country="+country+"&method=2&month=04&year=2021"
-
-
-# response = requests.get(url)
-# data = response.json().get('data')[0]['timings']
-# # pprint.pprint(response.json().get('data')[0]['timings'])
-
-# timings=[]
-# twelve_hour_format = []
-# prayers = []
-# for prayer in data:
-#   prayers.append(prayer)
-#   timings.append(data[prayer])
-
-
-
-
-
-# #time changed to 12 hour format:
-
-# for t in timings:
-#   oneT = time.strptime(t[:5], "%H:%M")
-#   timevalue_12hour = time.strftime( "%I:%M %p", oneT )
-#   twelve_hour_format.append(timevalue_12hour)
-
-
-# #printing prayer and time on same line
-# for pray, tim in zip(prayers, twelve_hour_format):
-#     print("{0}: {1}".format(pray, tim))
-
-
-import tkinter as tk
-
-#parent
-root = tk.Tk()
-#title
-title = tk.Label(root,text="Prayer Times")
-title.grid(row=0,column=5)
-button = tk.Button(root, text="Submit")
-button.grid(row=0,column=0)
 # lab = tk.Label(root, text="Hello World!")
 # lab.grid(row=0, column=1)
+#---------------------------------
+import tkinter as tk
+# from tkinter import *
+# from tkinter.ttk import *
+
+
+class MainApplication():
+
+    def __init__(self, master):
+        self.master = master
+        self.master.title("Prayer Times")
+        # self.master.iconbitmap("Blank.ico")
+
+
+        label = tk.Label(self.master, text="Prayer Times", )
+        city_label = tk.Label(self.master, text="City", )
+        state_label = tk.Label(self.master, text="State", )
+        country_label = tk.Label(self.master, text="Country", )
+        location_City_Input = tk.Entry(self.master)
+        location_State_Input = tk.Entry(self.master)
+        location_Country_Input = tk.Entry(self.master)
+
+
+
+        # greet_button = Button(self.master, width=25, text="Greet", command=self.greet)
+        close_button = tk.Button(self.master, width=25, text="Close", command=self.closed)
+
+        # Grid.columnconfigure(self.master, 0, weight=1)
+        # Grid.rowconfigure(self.master, (0,1,2), weight=1)
+
+        label.grid(row=0, column=0, sticky="NSWE",padx=(10, 10), pady=(7.5, 0))
+        city_label.grid(row=1, column=0, sticky="NSWE",padx=(10, 5), pady=(3, 0))
+        state_label.grid(row=2, column=0, sticky="NSWE",padx=(10, 5), pady=(3, 0))
+        country_label.grid(row=3, column=0, sticky="NSWE",padx=(10, 5), pady=(3, 0))
+
+        location_City_Input.grid(row=1, column=1, sticky="NSWE",padx=(5, 10), pady=(3, 0))
+        location_State_Input.grid(row=2, column=1, sticky="NSWE",padx=(5, 10), pady=(3, 0))
+        location_Country_Input.grid(row=3, column=1, sticky="NSWE",padx=(5, 10), pady=(3, 0))
+
+        
+        # greet_button.grid(row=1, column=0, sticky="NSWE", padx=(10, 10), pady=(10, 1.5))
+        close_button.grid(row=5, column=0, sticky="NSWE", padx=(10, 10), pady=(1.5, 10))
+
+
+    def greet(self):
+        print("Greetings!")
+        return
+
+
+    def closed(self):
+        print("Quiting")
+        return self.master.destroy()
+        
+
+
+root = tk.Tk()
+# root.style = Style()
+#  ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative')
+# root.style.theme_use("clam")
+gui = MainApplication(root)
+root.mainloop()
