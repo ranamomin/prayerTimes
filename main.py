@@ -1,4 +1,5 @@
 
+import prayerTimes
 import tkinter as tk
 # from tkinter import *
 # from tkinter.ttk import *
@@ -69,9 +70,13 @@ class MainApplication():
       global city_name
       global state_name
       global country_name
-      print(city_name.get())
-      print(state_name.get())
-      print(country_name.get())
+      # print([city_name.get(),state_name.get(),country_name.get()])
+      # return [city_name.get(),state_name.get(),country_name.get()]
+      print(prayerTimes.prayerTimes(city_name.get(),state_name.get(),country_name.get()))
+      
+      # print(city_name.get())
+      # print(state_name.get())
+      # print(country_name.get())
 
 
     def closed(self):
