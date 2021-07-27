@@ -1,4 +1,3 @@
-
 import prayerTimes
 import tkinter as tk
 # from tkinter import *
@@ -161,4 +160,3 @@ root = tk.Tk()
 # root.style.theme_use("clam")
 gui = MainApplication(root)
 root.mainloop()
-
