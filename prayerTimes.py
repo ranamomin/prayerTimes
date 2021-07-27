@@ -10,7 +10,9 @@ def prayerTimes(city,state,country):
   response = requests.get(url)
   data = response.json().get('data')[0]['timings']
   timings=[]
+  global twelve_hour_format
   twelve_hour_format = []
+  global prayers
   prayers = []
  
   for prayer in data:
@@ -34,6 +36,11 @@ def prayerTimes(city,state,country):
 def call_url(city,state,country):
   url = "http://api.aladhan.com/v1/calendarByCity?city="+city+"&state="+state+"&country="+country+"&method=2&month=04&year=2021"
   return url
+
+def get_prayers():
+  return prayers
+def twelve_hour_format():
+  return twelve_hour_format
 
 # city = input("City: ").replace(" ","")
 # state = input("State: ").replace(" ","")

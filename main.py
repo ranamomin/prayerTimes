@@ -113,7 +113,20 @@ class MainApplication():
         return self.master.destroy()
 def page2(data):
       # submit_button.pack_forget()
-      print("here")
+      # print(data)
+      # print("here")
+      #create 9 labels for names of prayer
+      prayer_label = tk.Label(root, text='')
+      prayer_label.grid(row=1, column=0, pady=10)
+      prayers = prayerTimes.get_prayers()
+      prayers_label = ''
+      for prayer in prayers:
+        prayers_label = prayers_label + prayer + '\n'
+        prayer_label.config(text=prayers_label)
+      # print(prayerTimes.get_prayers())
+      # global Fajr
+      # global Sunrise
+      # global Dhuhr
       # page1text.pack()
 root = tk.Tk()
 # root.style = Style()
