@@ -22,6 +22,9 @@ class MainApplication():
         # location_City_Input.grid(row=1, column=1, sticky="NSWE",padx=(10, 10), pady=(7.5, 0))
         
         label = tk.Label(self.master, text="Prayer Times")
+        global city_label
+        global state_label
+        global country_label
         city_label = tk.Label(self.master, text="City", )
         state_label = tk.Label(self.master, text="State", )
         country_label = tk.Label(self.master, text="Country", )
@@ -31,19 +34,29 @@ class MainApplication():
         # city_n = tk.StringVar() 
         # global city_name
         global city_name
+        global state_name
+        global country_name
+
+        global location_City_Input
+        global location_State_Input
+        global location_Country_Input
+
+        global submit_button
+
         city_name = tk.StringVar()
         location_City_Input = tk.Entry(self.master,textvariable=city_name)
         # city_name = location_City_Input.get()
         
-        global state_name
+        
         state_name = tk.StringVar()
         location_State_Input = tk.Entry(self.master, textvariable=state_name)
 
-        global country_name
+        
         country_name = tk.StringVar()
         location_Country_Input = tk.Entry(self.master, textvariable=country_name)
         # greet_button = Button(self.master, width=25, text="Greet", command=self.greet)
         #buttons
+        
         submit_button = tk.Button(self.master, width=15, text="Submit", command=self.submit_action)
 
         close_button = tk.Button(self.master, width=25, text="Close", command=self.closed)
@@ -63,6 +76,7 @@ class MainApplication():
 
         submit_button.grid(row=5, column=1,sticky="NSWE", padx=(10, 10), pady=(1.5, 10))
         close_button.grid(row=6, column=1, sticky="NSWE", padx=(10, 10), pady=(1.5, 10))
+
         
 
 
@@ -72,17 +86,35 @@ class MainApplication():
       global country_name
       # print([city_name.get(),state_name.get(),country_name.get()])
       # return [city_name.get(),state_name.get(),country_name.get()]
-      print(prayerTimes.prayerTimes(city_name.get(),state_name.get(),country_name.get()))
+      try:
+        data = prayerTimes.prayerTimes(city_name.get(),state_name.get(),country_name.get())
+      except TypeError:
+        print("Type Error")
+      else:
+        submit_button.grid_forget()
+        location_City_Input.grid_forget()
+        location_State_Input.grid_forget()
+        location_Country_Input.grid_forget()
+        city_label.grid_forget()
+        state_label.grid_forget()
+        country_label.grid_forget()
+        page2(data)
+      # sub.configure(state='disabled')
       
       # print(city_name.get())
       # print(state_name.get())
       # print(country_name.get())
+    #page two is used to display the prayer times on GUI
+    
 
 
     def closed(self):
         print("Quiting")
         return self.master.destroy()
-        
+def page2(data):
+      # submit_button.pack_forget()
+      print("here")
+      # page1text.pack()
 root = tk.Tk()
 # root.style = Style()
 #  ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative')
