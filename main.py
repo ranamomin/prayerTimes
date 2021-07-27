@@ -91,13 +91,13 @@ class MainApplication():
       except TypeError:
         print("Type Error")
       else:
-        submit_button.grid_forget()
-        location_City_Input.grid_forget()
-        location_State_Input.grid_forget()
-        location_Country_Input.grid_forget()
-        city_label.grid_forget()
-        state_label.grid_forget()
-        country_label.grid_forget()
+        submit_button.grid_remove()
+        location_City_Input.grid_remove()
+        location_State_Input.grid_remove()
+        location_Country_Input.grid_remove()
+        city_label.grid_remove()
+        state_label.grid_remove()
+        country_label.grid_remove()
         page2(data)
       # sub.configure(state='disabled')
       
@@ -114,6 +114,7 @@ class MainApplication():
 def page2(data):
       
       #create 9 labels for names of prayer
+      global prayer_label
       prayer_label = tk.Label(root, text='')
       prayer_label.grid(row=1, column=0, pady=10)
       prayers = prayerTimes.get_prayers()
@@ -123,6 +124,7 @@ def page2(data):
         prayer_label.config(text=prayers_label)
 
       # create 9 labels for time of prayers
+      global times_label
       times_label = tk.Label(root, text='')
       times_label.grid(row=1, column=1, pady=10,)
       prayer_times = prayerTimes.get_twelve_hour_format()
@@ -130,6 +132,28 @@ def page2(data):
       for prayer_time in prayer_times:
         prayers_time_label = prayers_time_label + prayer_time + '\n'
         times_label.config(text=prayers_time_label)
+
+      global back_button
+      back_button = tk.Button(root, width=4,height=1,text="back", command=go_back)
+      back_button.grid(row=0, column=1,padx=(10, 10), pady=(7.5, 0))
+
+def go_back():
+  print("backing")
+  back_button.grid_forget()
+  times_label.grid_forget()
+  prayer_label.grid_forget()
+
+  submit_button.grid()
+  location_City_Input.grid()
+  location_State_Input.grid()
+  location_Country_Input.grid()
+  city_label.grid()
+  state_label.grid()
+  country_label.grid()
+
+  
+  
+  # return self.master.destroy()
 
 root = tk.Tk()
 # root.style = Style()
