@@ -39,7 +39,7 @@ def call_url(city,state,country):
 
 def get_prayers():
   return prayers
-def twelve_hour_format():
+def get_twelve_hour_format():
   return twelve_hour_format
 
 # city = input("City: ").replace(" ","")
