@@ -20,7 +20,7 @@ class MainApplication():
 
         # location_City_Input.grid(row=1, column=1, sticky="NSWE",padx=(10, 10), pady=(7.5, 0))
         
-        label = tk.Label(self.master, text="Prayer Times")
+        label = tk.Label(self.master, text="Prayer Times",font=('Helvetica', 12,'bold'))
         global city_label
         global state_label
         global country_label
